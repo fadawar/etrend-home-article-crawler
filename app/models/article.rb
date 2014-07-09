@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   belongs_to :category
+  has_and_belongs_to_many :tags
 
   def self.parse_articles(response)
     html = Nokogiri::HTML(response)
