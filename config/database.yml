@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  username: trendcrawler
+  password: kukurica
+  host: localhost
+
+development:
+  <<: *default
+  database: trend-crawler_development
+test:
+  <<: *default
+  database: trend-crawler_test
+production:
+  <<: *default
+  database: trend-crawler_production
+  username: trend-crawler
+  password: <%= ENV['TREND-CRAWLER_DATABASE_PASSWORD'] %>
